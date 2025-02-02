@@ -1,5 +1,4 @@
 import {Mutation, State} from 'vuex-simple';
-import {Cart} from "@/interfaces";
 
 let instance: CartModule | null = null;
 
@@ -14,21 +13,21 @@ export default class CartModule {
     public cart: Interfaces.Cart[] = [];
 
     @Mutation()
-    public addToCart(product: Interfaces.Product): void {
+    public addToCart(product: Interfaces.Cart): void {
         const productIndex = this.cart.findIndex((item) => item.name === product.name);
         if (productIndex > -1) this.cart[productIndex].quantity++;
         else this.cart.push({...product, quantity: 1});
     }
 
     @Mutation()
-    public removeFromCart(product: Interfaces.Product): void {
+    public removeFromCart(product: Interfaces.Cart): void {
         const cartIndex = this.cart.findIndex((item) => item.name === product.name)
         if (this.cart[cartIndex].quantity > 1) this.cart[cartIndex].quantity--;
         else this.cart.splice(cartIndex, 1);
     }
 
     @Mutation()
-    public updateCart(products: Interfaces.Product[]): void {
+    public updateCart(products: Interfaces.Cart[]): void {
         this.cart = this.cart.map((item) => {
             const product = products.find(product => product.T === item.T);
             if (product) return {...item, C: product.C, price: product.C};

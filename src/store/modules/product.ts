@@ -1,7 +1,6 @@
 import {Mutation, State, Getter, Action} from 'vuex-simple';
 import data from "../../../public/data.json";
 import names from "../../../public/names.json";
-import {ProductsList} from "@/interfaces";
 
 let instance: ProductModule | null = null;
 
@@ -54,7 +53,7 @@ export default class ProductModule {
             });
 
             return grouped;
-        }, {} as Record<string, any>);
+        }, {} as Record<string, any>[]);
     }
 
     @Action()
@@ -68,7 +67,7 @@ export default class ProductModule {
     }
 
     @Action()
-    public fetch() {
+    public fetch(): void {
         this.fetchProducts();
         this.fetchNames();
     }
