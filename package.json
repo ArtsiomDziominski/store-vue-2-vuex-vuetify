@@ -17,6 +17,7 @@
     "vuex-simple": "^2.2.0"
   },
   "devDependencies": {
+    "@types/node": "^18.19.74",
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-typescript": "~5.0.0",
